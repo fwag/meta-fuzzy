@@ -1,0 +1,18 @@
+#!/bin/sh
+
+log() {
+    echo "mender:$*" >&2
+}
+
+RC=0
+
+log "$(cat /etc/mender/artifact_info): $(basename "$0") was called!"
+
+if [ $? -ne 0 ]; then
+    RC=21
+    #retry
+fi
+
+
+log "Returning $RC from $0 state script"
+exit $RC

@@ -1,0 +1,17 @@
+#!/bin/bash
+
+set -e
+
+STATE="$1"
+FILES="$2"
+
+case "$STATE" in
+    ArtifactInstall)
+        echo "All good!"
+        ;;
+
+    ArtifactFailure)
+        echo "Failure: reverting if possible!"
+        ;;
+esac
+exit 0
